@@ -3,95 +3,340 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>estetler-mbadba</title>
+  <meta name="theme-color" content="#3C3C3C">
+  <title>How I Lead — Eric W. Stetler</title>
+  <meta name="description" content="A one-page leadership framework. People. Process. Stewardship.">
+
+  <meta property="og:title" content="How I Lead — Eric W. Stetler">
+  <meta property="og:description" content="A one-page leadership framework. People. Process. Stewardship.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How I Lead — Eric W. Stetler">
+  <meta name="twitter:description" content="A one-page leadership framework. People. Process. Stewardship.">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F26431'/%3E%3C/svg%3E">
+
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    :root {
+      --orange: #F26431;
+      --orange-deep: #D94E1F;
+      --charcoal: #3C3C3C;
+      --ink: #2A2A2A;
+      --muted: #6B6B6B;
+      --soft: #9A9A9A;
+      --bg: #FFFFFF;
+      --bg-dark: #3C3C3C;
+      --border: #ECECEC;
     }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                   "Helvetica Neue", Arial, sans-serif;
+      font-size: 17px;
       line-height: 1.6;
-      color: #333;
-      background: #f4f4f4;
+      color: var(--ink);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
     }
-    header {
-      background: #333;
-      color: #fff;
-      padding: 1rem;
-      text-align: center;
+
+    /* HERO ------------------------------------------------- */
+    .hero {
+      background: var(--bg-dark);
+      color: #FFFFFF;
+      padding: clamp(3.5rem, 11vw, 6rem) 1.5rem clamp(3rem, 8vw, 5rem);
+      position: relative;
+      overflow: hidden;
     }
-    nav {
-      display: flex;
-      justify-content: center;
-      background: #555;
-      flex-wrap: wrap;
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 4px;
+      background: var(--orange);
     }
-    nav a {
-      color: #fff;
-      padding: 0.75rem 1rem;
+    .hero-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      color: var(--orange);
+      font-size: 0.72rem;
+      letter-spacing: 0.28em;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin: 0 0 1.5rem 0;
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2.6rem, 11vw, 5rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 0.98;
+    }
+    .accent-bar {
+      width: 64px;
+      height: 5px;
+      background: var(--orange);
+      margin: 1.75rem 0 1.25rem;
+      border-radius: 1px;
+    }
+    .hero .subtitle {
+      color: var(--orange);
+      font-size: clamp(1.1rem, 2.8vw, 1.35rem);
+      font-style: italic;
+      margin: 0 0 2rem 0;
+      font-weight: 500;
+      letter-spacing: -0.005em;
+    }
+    .hero .contact {
+      color: rgba(255,255,255,0.62);
+      font-size: 0.88rem;
+      margin: 0;
+      line-height: 1.7;
+    }
+    .hero .contact a {
+      color: rgba(255,255,255,0.85);
       text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+      transition: border-color 0.2s ease;
     }
-    nav a:hover {
-      background: #777;
+    .hero .contact a:hover,
+    .hero .contact a:focus {
+      border-bottom-color: var(--orange);
+      color: #FFFFFF;
     }
+
+    /* CONTAINER -------------------------------------------- */
     main {
-      max-width: 960px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
     }
+
     section {
-      background: #fff;
-      border-radius: 8px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: clamp(2.5rem, 8vw, 4rem) 0;
+      border-bottom: 1px solid var(--border);
     }
-    h2 {
-      margin-bottom: 1rem;
-      color: #333;
+    section:last-of-type {
+      border-bottom: none;
     }
+
+    .eyebrow {
+      color: var(--orange);
+      font-size: 0.7rem;
+      letter-spacing: 0.28em;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin: 0 0 0.85rem 0;
+    }
+    .eyebrow .num {
+      color: var(--orange);
+      font-weight: 800;
+      margin-right: 0.4rem;
+    }
+
+    section h2 {
+      margin: 0 0 1rem 0;
+      font-size: clamp(1.55rem, 5.5vw, 2.1rem);
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      line-height: 1.15;
+      color: var(--charcoal);
+    }
+
+    .row {
+      margin: 0.6rem 0;
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+    .row strong {
+      color: var(--charcoal);
+      font-weight: 700;
+      margin-right: 0.4rem;
+    }
+    .row .desc {
+      color: var(--muted);
+    }
+
+    .preamble {
+      color: var(--muted);
+      margin: 0 0 1rem;
+      font-size: 1rem;
+    }
+
+    blockquote {
+      margin: 1.5rem 0 0 0;
+      padding: 0 0 0 1.25rem;
+      border-left: 3px solid var(--orange);
+      color: var(--muted);
+      font-style: italic;
+      font-size: 1.02rem;
+      line-height: 1.6;
+    }
+
+    .in-one-sentence blockquote {
+      font-size: clamp(1.1rem, 3vw, 1.25rem);
+      color: var(--charcoal);
+      font-weight: 600;
+      font-style: italic;
+      border-left-width: 4px;
+      padding: 0.25rem 0 0.25rem 1.5rem;
+    }
+
+    /* FOOTER ----------------------------------------------- */
     footer {
+      padding: 3.5rem 1.5rem 4rem;
       text-align: center;
-      padding: 1rem;
-      background: #333;
-      color: #fff;
     }
-    @media (max-width: 600px) {
-      nav a {
-        flex: 1 1 50%;
-        text-align: center;
+    footer .mantra {
+      color: var(--orange);
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      margin: 0 0 1.5rem;
+    }
+    footer .signature {
+      color: var(--soft);
+      font-size: 0.85rem;
+      margin: 0;
+    }
+    footer .signature a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+    footer .signature a:hover,
+    footer .signature a:focus {
+      color: var(--charcoal);
+      border-bottom-color: var(--orange);
+    }
+
+    /* PRINT ------------------------------------------------ */
+    @media print {
+      body { font-size: 10.5pt; color: var(--ink); background: #FFF; }
+      .hero {
+        background: #FFF;
+        color: var(--charcoal);
+        padding: 0 0 1rem;
+        border-bottom: 3px solid var(--orange);
       }
+      .hero::before { display: none; }
+      .hero h1 { font-size: 2rem; color: var(--charcoal); }
+      .hero .subtitle { color: var(--orange); margin-bottom: 0.5rem; }
+      .hero .contact, .hero .contact a {
+        color: var(--muted); border: none;
+      }
+      .accent-bar { display: none; }
+      section { padding: 0.7rem 0; page-break-inside: avoid; }
+      section h2 { font-size: 1.1rem; margin-bottom: 0.3rem; }
+      .row, .preamble { margin: 0.15rem 0; }
+      blockquote { margin-top: 0.4rem; color: var(--muted); }
+      footer { padding: 1rem 0; }
+      footer .mantra { color: var(--orange); }
+    }
+
+    /* SELECTION -------------------------------------------- */
+    ::selection {
+      background: var(--orange);
+      color: #FFFFFF;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Welcome to estetler-mbadba.github.io</h1>
-    <p>A simple responsive website</p>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">A one-page leadership framework</p>
+      <h1>How I Lead</h1>
+      <div class="accent-bar" aria-hidden="true"></div>
+      <p class="subtitle">People.&nbsp; Process.&nbsp; Stewardship.</p>
+      <p class="contact">
+        Eric W. Stetler, DBA &nbsp;·&nbsp;
+        <a href="mailto:estetler@gmail.com">estetler@gmail.com</a> &nbsp;·&nbsp;
+        <a href="tel:+16145372924">614-537-2924</a>
+      </p>
+    </div>
   </header>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
+
   <main>
-    <section id="about">
-      <h2>About</h2>
-      <p>Hello! This is my GitHub Pages site. Feel free to explore and learn more about my work.</p>
+
+    <section aria-labelledby="s1">
+      <p class="eyebrow"><span class="num">01</span> The Operating System</p>
+      <h2 id="s1">People.&nbsp; Process.&nbsp; Stewardship.</h2>
+      <p class="row"><strong>People</strong><span class="desc">Hiring, onboarding, employee relations, unions, supervisors, morale.</span></p>
+      <p class="row"><strong>Process</strong><span class="desc">Transportation, maintenance, food service, documentation, rhythms.</span></p>
+      <p class="row"><strong>Stewardship</strong><span class="desc">Budgets, facilities, public trust, taxpayer dollars, long-term sustainability.</span></p>
+      <blockquote>I build people-first systems that make complex work clearer, fairer, and more sustainable.</blockquote>
     </section>
-    <section id="projects">
-      <h2>Projects</h2>
-      <p>Check out my repositories on <a href="https://github.com/estetler-mbadba">GitHub</a> to see what I've been building.</p>
+
+    <section aria-labelledby="s2">
+      <p class="eyebrow"><span class="num">02</span> How I Make Decisions</p>
+      <h2 id="s2">Diagnose before you design.</h2>
+      <blockquote>My first move is not to redesign. It's to understand what is already working, where the friction is, and what the people closest to the work already know.</blockquote>
     </section>
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>You can reach me via GitHub: <a href="https://github.com/estetler-mbadba">@estetler-mbadba</a></p>
+
+    <section aria-labelledby="s3">
+      <p class="eyebrow"><span class="num">03</span> How I Partner with Senior Leadership</p>
+      <h2 id="s3">No surprises.&nbsp; Bring options.&nbsp; Close loops.</h2>
+      <p class="row"><strong>No surprises</strong><span class="desc">Keep the Superintendent, the Treasurer, and principals informed before issues escalate.</span></p>
+      <p class="row"><strong>Bring options</strong><span class="desc">Don't dump problems. Frame choices, tradeoffs, risks, and a recommendation.</span></p>
+      <p class="row"><strong>Close loops</strong><span class="desc">Return with follow-up. Even if the answer is partial, show movement.</span></p>
+      <blockquote>My job is to reduce noise for senior leadership, not create more of it.</blockquote>
     </section>
+
+    <section aria-labelledby="s4">
+      <p class="eyebrow"><span class="num">04</span> How I Learn the Work</p>
+      <h2 id="s4">Ride the bus.&nbsp; Walk the building.&nbsp; Eat the lunch.</h2>
+      <blockquote>I learn this work from the ground up. Ride a route. Walk buildings with maintenance. Stand in a lunch line and see the flow. The spreadsheet matters, but the work teaches you what the spreadsheet misses.</blockquote>
+    </section>
+
+    <section aria-labelledby="s5">
+      <p class="eyebrow"><span class="num">05</span> How I Build Systems</p>
+      <h2 id="s5">Make the invisible visible.</h2>
+      <p class="row"><strong>Onboarding</strong><span class="desc">one-page checklist supervisors actually use.</span></p>
+      <p class="row"><strong>Employee relations</strong><span class="desc">one-page decision tree, clearly documented.</span></p>
+      <p class="row"><strong>Operations · facilities · hiring</strong><span class="desc">one-page dashboard, shared with cabinet.</span></p>
+      <p class="row"><strong>Public accountability</strong><span class="desc">one-page board brief, audit-ready.</span></p>
+      <blockquote>I like simple tools that supervisors actually use. If a process only works because one person remembers all the steps, it's too fragile.</blockquote>
+    </section>
+
+    <section aria-labelledby="lenses">
+      <p class="eyebrow">How I Think Through Any Problem</p>
+      <h2 id="lenses">Five lenses on every question.</h2>
+      <p class="preamble">Every problem sorts into one of these:</p>
+      <p class="row"><strong>People</strong><span class="desc">Who needs clarity, support, trust, or accountability?</span></p>
+      <p class="row"><strong>Process</strong><span class="desc">What rhythm, checklist, handoff, or documentation would reduce friction?</span></p>
+      <p class="row"><strong>Stewardship</strong><span class="desc">What public dollars, public trust, safety, or sustainability is at stake?</span></p>
+      <p class="row"><strong>Ground Game</strong><span class="desc">What would I learn by being physically present with the people doing the work?</span></p>
+      <p class="row"><strong>Spine</strong><span class="desc">What simple structure would make the work repeatable without becoming bureaucratic?</span></p>
+    </section>
+
+    <section class="in-one-sentence" aria-labelledby="onesentence">
+      <p class="eyebrow">In One Sentence</p>
+      <h2 id="onesentence" class="visually-hidden" style="position:absolute;left:-9999px;">Summary</h2>
+      <blockquote>I'm a systems-minded people leader. I listen first, clarify the work, support the people closest to it, and build practical structures that help organizations serve the people they exist for.</blockquote>
+    </section>
+
   </main>
+
   <footer>
-    <p>&copy; 2026 estetler-mbadba. All rights reserved.</p>
+    <p class="mantra">Clear.&nbsp; Grounded.&nbsp; Useful.</p>
+    <p class="signature">
+      <a href="mailto:estetler@gmail.com">Eric W. Stetler, DBA</a>
+    </p>
   </footer>
+
 </body>
 </html>
