@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Eric Stetler · College data projects</title>
-<meta name="description" content="College data projects built with SQL and an AI coding agent: a weekly admissions pacing report and two analyses of public federal records. Each is live, open source, and checked.">
+<meta name="description" content="College data projects built with an AI coding agent and checked: a weekly admissions pacing report, two analyses of public federal records, and a program-to-career explorer. Each is live and open source.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&display=swap">
@@ -28,19 +28,19 @@
 
 <header class="top">
   <p class="eyebrow">College data projects</p>
-  <h1>College data projects, built with SQL and open to inspection</h1>
+  <h1>College data projects, checked and open to inspection</h1>
   <p class="deck">Each project answers questions a college's enrollment office or leadership asks. Each shows the table behind every chart, states what the data cannot show, and can be rebuilt from its sources with one command.</p>
   <div class="tiles">
-    <div class="tile"><span class="label">Live projects</span><span class="value">3</span><span class="delta">Each with its code, data dictionary, and methods page.</span></div>
-    <div class="tile"><span class="label">Accuracy checks</span><span class="value">82</span><span class="delta">Run on every build. All passed at the last build.</span></div>
-    <div class="tile"><span class="label">Data</span><span class="value">Open</span><span class="delta">Public federal records for two projects. Synthetic records for the third, labelled on every page.</span></div>
+    <div class="tile"><span class="label">Live projects</span><span class="value">4</span><span class="delta">Each with its code, a data dictionary, and its methods.</span></div>
+    <div class="tile"><span class="label">Accuracy checks</span><span class="value">95</span><span class="delta">Run on every build. All passed at the last build.</span></div>
+    <div class="tile"><span class="label">Data</span><span class="value">Open</span><span class="delta">Public federal records for three projects. Synthetic records for the pacing report, labelled on every page.</span></div>
   </div>
 </header>
 
 <section id="projects">
   <p class="kicker">Projects</p>
-  <h2>Start with any of the three</h2>
-  <p class="finding">Each opens in a browser with nothing to install. The first is the weekly report an admissions office runs on. The second takes about three minutes to read. The third is a tool to use.</p>
+  <h2>Start with any of the four</h2>
+  <p class="finding">Each opens in a browser with nothing to install. The first is the weekly report an admissions office runs on. The second takes about three minutes to read. The third and fourth are tools to use.</p>
 
   <article class="card project">
     <a class="shot" href="https://estetler-mbadba.github.io/admissions-pacing-report/"><img src="img/admissions-pacing-report.jpg" width="800" height="600" alt="Net deposits by weekly report for three entering classes, with the report date marked" loading="lazy"></a>
@@ -86,6 +86,20 @@
       <p class="links"><a class="btn" href="https://estetler-mbadba.github.io/athletics-benchmarking-explorer/">Open the explorer</a> <a href="https://estetler-mbadba.github.io/athletics-benchmarking-explorer/methods.html">Methods and checks</a> <a href="https://github.com/estetler-mbadba/athletics-benchmarking-explorer">Code</a></p>
     </div>
   </article>
+  <article class="card project">
+    <a class="shot" href="https://estetler-mbadba.github.io/program-career-explorer/"><img src="img/program-career-explorer.jpg" width="800" height="600" alt="The explorer showing the occupations connected to a business administration program, with growth, openings, and wages" loading="lazy"></a>
+    <div>
+      <p class="kicker">Any program, and where it leads</p>
+      <h3><a href="https://estetler-mbadba.github.io/program-career-explorer/">Program-to-Career Explorer</a></h3>
+      <p>Pick any of 2,173 academic programs and see the occupations the federal crosswalk connects it to, with projected growth, annual openings, median wage, typical entry education, and what the work involves. Then generate a one-page brief of questions for a conversation with faculty, a dean, or a board.</p>
+      <ul>
+        <li>Joins four federal sources that use two coding systems: NCES program codes, the NCES and BLS crosswalk, BLS Employment Projections, and the O*NET database.</li>
+        <li>13 accuracy checks read each source a second time. On the day they were written they found 145 current programs missing from the page; the fix and the account are in the repository.</li>
+        <li>The brief's questions come from rules, not a language model, and the limits of the data are stated on the page.</li>
+      </ul>
+      <p class="links"><a class="btn" href="https://estetler-mbadba.github.io/program-career-explorer/">Open the explorer</a> <a href="https://github.com/estetler-mbadba/program-career-explorer/blob/main/SOURCES.md">Sources and methods</a> <a href="https://github.com/estetler-mbadba/program-career-explorer">Code</a></p>
+    </div>
+  </article>
 </section>
 
 <section id="method">
@@ -93,9 +107,9 @@
   <h2>What the projects have in common</h2>
   <dl class="how">
     <dt>Built from the source files</dt>
-    <dd>One command rebuilds every number from its sources: federal downloads for two projects, a seeded generator for the third. No figure is typed or pasted in by hand, and the projects need nothing beyond standard Python.</dd>
+    <dd>One command rebuilds every number from its sources: federal downloads for three projects, a seeded generator for the pacing report. No figure is typed or pasted in by hand. Three projects need nothing beyond standard Python; the fourth adds one package for reading spreadsheets.</dd>
     <dt>Measures defined once, in SQL</dt>
-    <dd>Each project has a small dimensional model and a data dictionary that says what one row of every table means. A measure has one definition, and every chart reads from it.</dd>
+    <dd>The three SQL projects each have a small dimensional model, and every project has a data dictionary that says what each table and figure means. A measure has one definition, and every chart reads from it.</dd>
     <dt>Checked before trusted</dt>
     <dd>The build stops if parts do not add up to totals, if a table has duplicate keys, or if a figure disagrees with a second source. Where two sources differ, the difference is published.</dd>
     <dt>AI used openly, and checked</dt>
@@ -126,6 +140,8 @@
         <tr><td>Comparison groups and benchmarks</td><td><a href="https://estetler-mbadba.github.io/ohio-five-enrollment-atlas/methods.html">Ohio Five atlas, methods page</a></td></tr>
         <tr><td>Automated accuracy checks</td><td><a href="https://github.com/estetler-mbadba/admissions-pacing-report/blob/main/pipeline/checks.py">Pacing report, <code>pipeline/checks.py</code></a></td></tr>
         <tr><td>Dashboards a non-specialist can read</td><td><a href="https://estetler-mbadba.github.io/ohio-five-enrollment-atlas/">Ohio Five atlas, consortium overview</a></td></tr>
+        <tr><td>Joining federal sources that use different coding systems</td><td><a href="https://github.com/estetler-mbadba/program-career-explorer/blob/main/scripts/build_data.py">Program-to-Career Explorer, <code>scripts/build_data.py</code></a></td></tr>
+        <tr><td>A tool that produces a take-away document</td><td><a href="https://estetler-mbadba.github.io/program-career-explorer/">Program-to-Career Explorer</a></td></tr>
         <tr><td>An interactive tool with shareable views</td><td><a href="https://estetler-mbadba.github.io/athletics-benchmarking-explorer/">Athletics explorer</a></td></tr>
         <tr><td>AI-assisted development with the work verified</td><td><a href="https://github.com/estetler-mbadba/admissions-pacing-report/blob/main/AI_WORKFLOW.md">Pacing report, <code>AI_WORKFLOW.md</code></a></td></tr>
         <tr><td>Exports ready for Tableau, Power BI, or Excel</td><td><a href="https://github.com/estetler-mbadba/ohio-five-enrollment-atlas/tree/main/data/marts">Ohio Five atlas, <code>data/marts/</code></a></td></tr>
@@ -143,8 +159,8 @@
 
 <hr>
 <footer>
-  <p>These are independent projects. The two built on public records are not affiliated with or endorsed by any college, consortium, conference, or athletic association named in them.</p>
-  <p>Data: U.S. Department of Education, National Center for Education Statistics (IPEDS) and Office of Postsecondary Education (EADA); colleges' published Common Data Sets. The pacing report uses synthetic records only, and its college is invented.</p>
+  <p>These are independent projects. Those built on public records are not affiliated with or endorsed by any college, consortium, conference, athletic association, or federal agency named in them.</p>
+  <p>Data: U.S. Department of Education, National Center for Education Statistics (IPEDS, CIP) and Office of Postsecondary Education (EADA); Bureau of Labor Statistics, Employment Projections; the O*NET database, USDOL/ETA, used under CC BY 4.0; colleges' published Common Data Sets. The pacing report uses synthetic records only, and its college is invented.</p>
 </footer>
 
 </div>
