@@ -1,0 +1,252 @@
+/* Design tokens: a validated, colorblind-safe palette with separate light and dark values. */
+:root {
+  color-scheme: light;
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --ink-3: #66655f;      /* small print: sources, labels, kickers */
+  --muted: #898781;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --border: rgba(11, 11, 11, 0.10);
+  --series-1: #2a78d6;   /* blue: the focus college, or series one */
+  --series-2: #eb6834;   /* orange */
+  --series-3: #1baf7a;   /* aqua */
+  --series-4: #eda100;   /* yellow */
+  --series-5: #e87ba4;   /* magenta */
+  --context: #b9b8b1;    /* de-emphasis gray for comparison colleges */
+  --band: rgba(137, 135, 129, 0.16);
+  --seq-0: #f0efec;      /* none */
+  --seq-1: #cde2fb;
+  --seq-2: #9ec5f4;
+  --seq-3: #5598e7;
+  --seq-4: #256abf;
+  --seq-5: #0d366b;
+  --shade-a: #9ec5f4;    /* earlier year in a before/after pair */
+  --shade-b: #1c5cab;    /* later year */
+  --focus-ring: #2a78d6;
+  --ok: #1a7f4b;         /* status: every accuracy check passed */
+  --gut: 20px;           /* side gutter */
+}
+/* Dark values are declared twice: once for the system setting, once for an explicit
+   data-theme="dark" on the root, so a theme toggle wins in both directions. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d;
+    --surface: #1a1a19;
+    --ink: #f0efec;
+    --ink-2: #c3c2b7;
+    --ink-3: #a3a199;
+    --muted: #898781;
+    --grid: #2c2c2a;
+    --axis: #383835;
+    --border: rgba(255, 255, 255, 0.10);
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --series-3: #199e70;
+    --series-4: #c98500;
+    --series-5: #d55181;
+    --context: #5a5955;
+    --band: rgba(195, 194, 183, 0.14);
+    --seq-0: #2c2c2a;
+    --seq-1: #104281;
+    --seq-2: #1c5cab;
+    --seq-3: #3987e5;
+    --seq-4: #86b6ef;
+    --seq-5: #cde2fb;
+    --shade-a: #1c5cab;
+    --shade-b: #9ec5f4;
+    --focus-ring: #6da7ec;
+    --ok: #3fb97a;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d;
+  --surface: #1a1a19;
+  --ink: #f0efec;
+  --ink-2: #c3c2b7;
+  --ink-3: #a3a199;
+  --muted: #898781;
+  --grid: #2c2c2a;
+  --axis: #383835;
+  --border: rgba(255, 255, 255, 0.10);
+  --series-1: #3987e5;
+  --series-2: #d95926;
+  --series-3: #199e70;
+  --series-4: #c98500;
+  --series-5: #d55181;
+  --context: #5a5955;
+  --band: rgba(195, 194, 183, 0.14);
+  --seq-0: #2c2c2a;
+  --seq-1: #104281;
+  --seq-2: #1c5cab;
+  --seq-3: #3987e5;
+  --seq-4: #86b6ef;
+  --seq-5: #cde2fb;
+  --shade-a: #1c5cab;
+  --shade-b: #9ec5f4;
+  --focus-ring: #6da7ec;
+  --ok: #3fb97a;
+}
+
+@media (max-width: 480px) { :root { --gut: 16px; } }
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font: 16px/1.55 "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:focus-visible, summary:focus-visible, input:focus-visible, .hit:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+h1, h2, h3 { text-wrap: balance; }
+
+.wrap { max-width: 1040px; margin: 0 auto; padding-left: max(var(--gut), env(safe-area-inset-left, 0px)); padding-right: max(var(--gut), env(safe-area-inset-right, 0px)); }
+
+/* Brand line. It scrolls away; the bar below it stays. */
+.mast { border-bottom: 1px solid var(--grid); }
+.mast-in { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px 20px; padding-block: 13px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-size: 15px; font-weight: 650; letter-spacing: -0.005em; }
+.mark { display: inline-flex; align-items: flex-end; gap: 3px; height: 18px; }
+.mark i { display: block; width: 5px; border-radius: 2px; background: var(--context); }
+.mark i:nth-child(1) { height: 9px; } .mark i:nth-child(2) { height: 18px; background: var(--series-1); } .mark i:nth-child(3) { height: 13px; }
+.vintage { display: inline-flex; align-items: center; gap: 7px; font-size: 12.5px; color: var(--ink-2); text-decoration: none; }
+.vintage::before { content: ""; flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--muted); }
+.vintage.ok::before { background: var(--ok); }
+.vintage:hover { text-decoration: underline; }
+
+/* The bar that stays on screen: who you are looking at, and where you are on the page.
+   It is the one place the page uses a translucent surface, so charts pass visibly beneath it. */
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--page); border-bottom: 1px solid var(--border); }
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .bar { background: color-mix(in srgb, var(--page) 82%, transparent); -webkit-backdrop-filter: saturate(1.5) blur(14px); backdrop-filter: saturate(1.5) blur(14px); }
+}
+/* Readers who ask their device for less transparency get a solid bar. */
+@media (prefers-reduced-transparency: reduce) {
+  .bar { background: var(--page); -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--page); }
+
+/* Section tabs. The underline marks the section on screen. */
+nav.tabs { display: flex; gap: 0 22px; overflow-x: auto; scrollbar-width: none; font-size: 14px; }
+nav.tabs a { flex: none; padding: 7px 0 9px; color: var(--ink-2); text-decoration: none; white-space: nowrap; border-bottom: 2px solid transparent; outline-offset: -2px; }
+nav.tabs a:hover { color: var(--ink); }
+nav.tabs a[aria-current] { color: var(--ink); border-bottom-color: var(--ink); }
+nav.tabs a.aside { margin-left: auto; }
+/* On a touch screen the choices are taller, so a finger lands on the one it aimed at. */
+@media (pointer: coarse) {
+  .pick a { padding-block: 7px; }
+  nav.tabs a { padding: 10px 0 10px; }
+}
+/* On a narrow screen both rows scroll sideways and run to the screen edge, so a cut-off label shows there is more. */
+@media (max-width: 760px) {
+  nav.tabs { margin-right: calc(-1 * max(var(--gut), env(safe-area-inset-right, 0px))); padding-right: var(--gut); }
+  nav.tabs a.aside { margin-left: 0; }
+}
+
+header.top { padding: 30px 0 0; }
+.eyebrow { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink-2); letter-spacing: 0.02em; margin: 0 0 10px; }
+h1 { font-size: clamp(28px, 4.4vw, 40px); line-height: 1.12; margin: 0 0 14px; font-weight: 650; letter-spacing: -0.015em; }
+.deck { font-size: 18px; color: var(--ink-2); max-width: 46em; margin: 0 0 10px; }
+.disclaimer { font-size: 13px; color: var(--ink-3); margin: 0; }
+
+/* A tab lands with the section's top rule tucked under the bar, so only one line shows. */
+section { padding: 34px 0 8px; scroll-margin-top: calc(var(--bar-h, 92px) - 2px); }
+section + section { border-top: 1px solid var(--grid); margin-top: 26px; }
+.kicker { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+h2 { font-size: clamp(21px, 2.7vw, 26px); line-height: 1.2; margin: 0 0 10px; font-weight: 650; letter-spacing: -0.01em; max-width: 34em; }
+.finding { font-size: 17px; max-width: 46em; margin: 0 0 20px; }
+.note { font-size: 14px; color: var(--ink-2); max-width: 50em; margin: 14px 0 0; }
+ul.plain { margin: 8px 0 0; padding-left: 20px; max-width: 48em; }
+ul.plain li { margin: 6px 0; }
+
+/* Stat tiles. Each tile's label, figure, and comparison share rows with its neighbors, so the figures line up. */
+.tiles { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; margin: 0; }
+@media (max-width: 920px) { .tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.tile { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 13px 14px; min-width: 0; color: inherit; text-decoration: none; }
+@supports (grid-template-rows: subgrid) {
+  .tile { display: grid; grid-row: span 3; grid-template-rows: subgrid; row-gap: 3px; }
+}
+.tile > span { display: block; }
+a.tile:hover { border-color: var(--axis); box-shadow: 0 2px 10px rgba(11, 11, 11, 0.07); }
+.tile .label { font-size: 13px; color: var(--ink-2); line-height: 1.35; }
+.tile .value { font-size: 28px; font-weight: 650; line-height: 1.15; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; align-self: end; }
+.tile .delta { font-size: 12.5px; color: var(--ink-2); line-height: 1.35; }
+.tiles-note { font-size: 12.5px; color: var(--ink-3); margin: 10px 0 0; max-width: 60em; }
+
+/* Key findings: each section's headline, in order, linked to its evidence. */
+h2.minor { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); margin: 26px 0 8px; }
+ol.kf { list-style: none; margin: 0; padding: 0; counter-reset: kf; border-top: 1px solid var(--grid); }
+ol.kf li { counter-increment: kf; border-bottom: 1px solid var(--grid); }
+ol.kf a { display: grid; grid-template-columns: 2em minmax(0, 1fr) auto; gap: 0 12px; align-items: baseline; padding: 12px 6px; text-decoration: none; }
+ol.kf a::before { content: counter(kf, decimal-leading-zero); font-size: 12px; font-weight: 600; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+ol.kf a:hover { background: var(--surface); }
+.kf-text { font-size: 16.5px; font-weight: 550; line-height: 1.35; text-wrap: balance; }
+.kf-go { display: inline-flex; align-items: baseline; gap: 6px; font-size: 13px; color: var(--ink-2); white-space: nowrap; }
+.kf-go::after { content: "\2192"; display: inline-block; }
+ol.kf a:hover .kf-go { color: var(--ink); }
+@media (max-width: 520px) { .kf-go span { display: none; } }
+
+
+/* ---------- Home page ---------- */
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; margin: 0 0 16px; min-width: 0; box-shadow: 0 1px 2px rgba(11, 11, 11, 0.03); }
+table { border-collapse: collapse; font-size: 14px; width: 100%; }
+th, td { text-align: left; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--grid); vertical-align: top; }
+th { color: var(--ink-2); font-weight: 600; font-size: 13px; }
+.table-scroll { overflow-x: auto; }
+footer { padding: 34px 0 56px; font-size: 13.5px; color: var(--ink-2); }
+footer p { margin: 6px 0; max-width: 56em; }
+hr { border: 0; border-top: 1px solid var(--grid); margin: 34px 0 0; }
+code { font: 13px ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--seq-0); padding: 1px 5px; border-radius: 4px; }
+
+.mast nav { display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: 14px; }
+.mast nav a { color: var(--ink-2); text-decoration: none; }
+.mast nav a:hover { color: var(--ink); text-decoration: underline; }
+header.top { padding: 44px 0 0; }
+header.top h1 { max-width: 19em; }
+.tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 26px; max-width: 760px; }
+@media (max-width: 920px) { .tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .tiles { grid-template-columns: minmax(0, 1fr); } }
+
+/* One project: the picture on the left, the case for opening it on the right. */
+.project { display: grid; grid-template-columns: minmax(0, 0.92fr) minmax(0, 1fr); gap: 26px; align-items: start; padding: 22px; }
+@media (max-width: 800px) { .project { grid-template-columns: minmax(0, 1fr); gap: 16px; padding: 16px; } }
+.project .shot { display: block; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: #f9f9f7; }
+.project .shot img { display: block; width: 100%; height: auto; }
+.project h3 { font-size: clamp(19px, 2.3vw, 22px); line-height: 1.25; margin: 0 0 8px; font-weight: 650; letter-spacing: -0.01em; }
+.project h3 a { text-decoration: none; }
+.project h3 a:hover { text-decoration: underline; }
+.project p { margin: 0 0 12px; max-width: 40em; }
+.project .kicker { margin-bottom: 6px; }
+.project ul { margin: 0 0 16px; padding-left: 18px; font-size: 14.5px; color: var(--ink-2); }
+.project li { margin: 5px 0; }
+.links { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; font-size: 14.5px; }
+a.btn { display: inline-block; padding: 8px 15px; border-radius: 999px; background: var(--ink); color: var(--page); font-weight: 600; text-decoration: none; }
+a.btn:hover { background: var(--ink-2); }
+a.btn:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+
+/* What the projects share: a term and its explanation, in two columns. */
+dl.how { display: grid; grid-template-columns: minmax(0, 15em) minmax(0, 1fr); gap: 0; margin: 6px 0 0; max-width: 60em; border-top: 1px solid var(--grid); }
+dl.how dt, dl.how dd { margin: 0; padding: 14px 0; border-bottom: 1px solid var(--grid); }
+dl.how dt { font-weight: 650; padding-right: 20px; }
+dl.how dd { color: var(--ink-2); }
+@media (max-width: 640px) { dl.how { grid-template-columns: minmax(0, 1fr); } dl.how dt { border-bottom: 0; padding-bottom: 2px; } dl.how dd { padding-top: 0; } }
+.about p { max-width: 46em; font-size: 17px; margin: 0 0 12px; }
+/* On a phone the skills table stacks: the skill, then where to see it. */
+@media (max-width: 640px) {
+  #skills thead { display: none; }
+  #skills table, #skills tbody, #skills tr, #skills td { display: block; }
+  #skills tr { padding: 10px 0; border-bottom: 1px solid var(--grid); }
+  #skills td { border: 0; padding: 0; }
+  #skills td:first-child { font-weight: 600; margin-bottom: 3px; }
+  #skills code { overflow-wrap: anywhere; }
+}

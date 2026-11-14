@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eric Stetler · College data projects</title>
+<meta name="description" content="Three analyses of college data, built from public federal records with SQL and an AI coding agent. Each is live, open source, and checked against outside sources.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="mast">
+  <div class="wrap mast-in">
+    <a class="brand" href="./"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Eric Stetler</span></a>
+    <nav aria-label="Sections of this page">
+      <a href="#projects">Projects</a>
+      <a href="#method">How they are built</a>
+      <a href="#skills">Where to look</a>
+      <a href="#about">About</a>
+      <a href="https://github.com/estetler-mbadba">GitHub</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+
+<header class="top">
+  <p class="eyebrow">College data projects</p>
+  <h1>Three analyses of college data, built from public records and open to inspection</h1>
+  <p class="deck">Each project answers questions a college's leadership asks. Each shows the table behind every chart, states what the data cannot show, and can be rebuilt from the federal source files with one command.</p>
+  <div class="tiles">
+    <div class="tile"><span class="label">Live projects</span><span class="value">3</span><span class="delta">Each with its code, data dictionary, and methods page.</span></div>
+    <div class="tile"><span class="label">Accuracy checks</span><span class="value">71</span><span class="delta">Run on every build. All passed at the last build.</span></div>
+    <div class="tile"><span class="label">Sources</span><span class="value">Public</span><span class="delta">IPEDS, federal athletics filings, and colleges' own Common Data Sets.</span></div>
+  </div>
+</header>
+
+<section id="projects">
+  <p class="kicker">Projects</p>
+  <h2>Start with any of the three</h2>
+  <p class="finding">Each opens in a browser with nothing to install. The first two take about three minutes to read. The third is a tool to use.</p>
+
+  <article class="card project">
+    <a class="shot" href="https://estetler-mbadba.github.io/kenyon-enrollment-insights/"><img src="img/kenyon-enrollment-insights.jpg" width="800" height="605" alt="The admissions funnel section of the Kenyon enrollment briefing" loading="lazy"></a>
+    <div>
+      <p class="kicker">One college, in depth</p>
+      <h3><a href="https://estetler-mbadba.github.io/kenyon-enrollment-insights/">Enrollment in public data: Kenyon College</a></h3>
+      <p>An enrollment briefing for one college. It covers the admissions funnel, early decision, position among 49 selective liberal arts colleges, where students come from, price and net price, and retention and graduation. A planner shows what one point of yield is worth.</p>
+      <ul>
+        <li>Federal IPEDS data joined with the college's own Common Data Set, which adds two newer classes.</li>
+        <li>The two sources are compared line by line: 28 of 35 shared figures match, and every difference is published.</li>
+        <li>One line of configuration points the federal part at any other college.</li>
+      </ul>
+      <p class="links"><a class="btn" href="https://estetler-mbadba.github.io/kenyon-enrollment-insights/">Open the briefing</a> <a href="https://estetler-mbadba.github.io/kenyon-enrollment-insights/methods.html">Methods and checks</a> <a href="https://github.com/estetler-mbadba/kenyon-enrollment-insights">Code</a></p>
+    </div>
+  </article>
+
+  <article class="card project">
+    <a class="shot" href="https://estetler-mbadba.github.io/ohio-five-enrollment-atlas/"><img src="img/ohio-five-enrollment-atlas.jpg" width="800" height="596" alt="Market overlap between each pair of the Five Colleges of Ohio" loading="lazy"></a>
+    <div>
+      <p class="kicker">Five colleges as one market</p>
+      <h3><a href="https://estetler-mbadba.github.io/ohio-five-enrollment-atlas/">Five Colleges of Ohio enrollment atlas</a></h3>
+      <p>How Denison, Kenyon, Oberlin, Ohio Wesleyan, and Wooster share and compete for students. It shows the combined funnel, market overlap for every pair, the states they share, Ohio's part of each class, price, and outcomes. A second view briefs any one of the five.</p>
+      <ul>
+        <li>States its limit up front: public data shows overlapping markets, never overlapping applicants.</li>
+        <li>Reads four colleges' Common Data Sets, including PDFs, and uses a figure only when the filing states it two ways that agree.</li>
+        <li>33 accuracy checks, including a comparison with a second processing of the same federal survey.</li>
+      </ul>
+      <p class="links"><a class="btn" href="https://estetler-mbadba.github.io/ohio-five-enrollment-atlas/">Open the atlas</a> <a href="https://estetler-mbadba.github.io/ohio-five-enrollment-atlas/methods.html">Methods and checks</a> <a href="https://github.com/estetler-mbadba/ohio-five-enrollment-atlas">Code</a></p>
+    </div>
+  </article>
+
+  <article class="card project">
+    <a class="shot" href="https://estetler-mbadba.github.io/athletics-benchmarking-explorer/"><img src="img/athletics-benchmarking-explorer.jpg" width="800" height="608" alt="Athletes as a share of undergraduates by division, one dot per college" loading="lazy"></a>
+    <div>
+      <p class="kicker">Any college, against its peers</p>
+      <h3><a href="https://estetler-mbadba.github.io/athletics-benchmarking-explorer/">Athletics Benchmarking Explorer</a></h3>
+      <p>Pick any of 2,037 colleges and compare its athletics program with its conference, its division, or a group you build. It covers athletes as a share of enrollment, spending and recruiting per athlete, athletic aid against tuition, funding sport by sport, and the balance between women's share of athletes and of students.</p>
+      <ul>
+        <li>The federal file has no conference field, so 1,279 colleges were matched from outside lists to federal IDs. All 61 exceptions are listed with reasons.</li>
+        <li>For every college in every year, sport expenses plus unallocated expenses must equal the reported total before the build is trusted.</li>
+        <li>The college and the comparison group are stored in the page address, so any view can be shared as a link.</li>
+      </ul>
+      <p class="links"><a class="btn" href="https://estetler-mbadba.github.io/athletics-benchmarking-explorer/">Open the explorer</a> <a href="https://estetler-mbadba.github.io/athletics-benchmarking-explorer/methods.html">Methods and checks</a> <a href="https://github.com/estetler-mbadba/athletics-benchmarking-explorer">Code</a></p>
+    </div>
+  </article>
+</section>
+
+<section id="method">
+  <p class="kicker">How they are built</p>
+  <h2>What the three have in common</h2>
+  <dl class="how">
+    <dt>Built from the source files</dt>
+    <dd>One command downloads the federal files and rebuilds every number. No figure is typed or pasted in by hand, and the projects need nothing beyond standard Python.</dd>
+    <dt>Measures defined once, in SQL</dt>
+    <dd>Each project has a small dimensional model and a data dictionary that says what one row of every table means. A measure has one definition, and every chart reads from it.</dd>
+    <dt>Checked before trusted</dt>
+    <dd>The build stops if parts do not add up to totals, if a table has duplicate keys, or if a figure disagrees with a second source. Where two sources differ, the difference is published.</dd>
+    <dt>AI used openly, and checked</dt>
+    <dd>I direct an AI coding agent to write the code. Each repository records what the AI got wrong, how each mistake was caught, and a log of human review.</dd>
+    <dt>Written for the reader</dt>
+    <dd>Findings are plain sentences generated from the data. Charts work on a phone, in dark mode, and for colorblind readers, and each has its table one click away. The limits are stated on the page.</dd>
+  </dl>
+</section>
+
+<section id="skills">
+  <p class="kicker">Where to look</p>
+  <h2>The best example of each skill</h2>
+  <div class="card"><div class="table-scroll">
+    <table>
+      <thead><tr><th scope="col">Skill</th><th scope="col">Best example</th></tr></thead>
+      <tbody>
+        <tr><td>SQL: joins, common table expressions, window functions, medians</td><td><a href="https://github.com/estetler-mbadba/athletics-benchmarking-explorer/blob/main/sql/03_marts.sql">Athletics explorer, <code>sql/03_marts.sql</code></a></td></tr>
+        <tr><td>Data modeling and a data dictionary</td><td><a href="https://github.com/estetler-mbadba/kenyon-enrollment-insights/blob/main/DATA_DICTIONARY.md">Kenyon briefing, <code>DATA_DICTIONARY.md</code></a></td></tr>
+        <tr><td>Reconciling two sources that disagree</td><td><a href="https://estetler-mbadba.github.io/kenyon-enrollment-insights/methods.html">Kenyon briefing, methods page</a></td></tr>
+        <tr><td>Matching records that share no common ID</td><td><a href="https://github.com/estetler-mbadba/athletics-benchmarking-explorer/blob/main/pipeline/conference_seed.py">Athletics explorer, <code>pipeline/conference_seed.py</code></a></td></tr>
+        <tr><td>Comparison groups and benchmarks</td><td><a href="https://estetler-mbadba.github.io/ohio-five-enrollment-atlas/methods.html">Ohio Five atlas, methods page</a></td></tr>
+        <tr><td>Automated accuracy checks</td><td><a href="https://github.com/estetler-mbadba/ohio-five-enrollment-atlas/blob/main/pipeline/checks.py">Ohio Five atlas, <code>pipeline/checks.py</code></a></td></tr>
+        <tr><td>Dashboards a non-specialist can read</td><td><a href="https://estetler-mbadba.github.io/ohio-five-enrollment-atlas/">Ohio Five atlas, consortium overview</a></td></tr>
+        <tr><td>An interactive tool with shareable views</td><td><a href="https://estetler-mbadba.github.io/athletics-benchmarking-explorer/">Athletics explorer</a></td></tr>
+        <tr><td>AI-assisted development with the work verified</td><td><a href="https://github.com/estetler-mbadba/kenyon-enrollment-insights/blob/main/AI_WORKFLOW.md">Kenyon briefing, <code>AI_WORKFLOW.md</code></a></td></tr>
+        <tr><td>Exports ready for Tableau, Power BI, or Excel</td><td><a href="https://github.com/estetler-mbadba/kenyon-enrollment-insights/tree/main/data/marts">Kenyon briefing, <code>data/marts/</code></a></td></tr>
+      </tbody>
+    </table>
+  </div></div>
+</section>
+
+<section id="about" class="about">
+  <p class="kicker">About</p>
+  <h2>Who built these</h2>
+  <p>I work in academic affairs leadership at a private university, where questions like these come from presidents, cabinets, and boards. I built these projects on public data so the whole method can be shown: the sources, the definitions, the checks, and the mistakes caught along the way.</p>
+  <p>The code is on <a href="https://github.com/estetler-mbadba">GitHub</a> under the MIT License.</p>
+</section>
+
+<hr>
+<footer>
+  <p>These are independent analyses of public records. They are not affiliated with or endorsed by any college, consortium, conference, or athletic association named in them.</p>
+  <p>Data: U.S. Department of Education, National Center for Education Statistics (IPEDS) and Office of Postsecondary Education (EADA); colleges' published Common Data Sets.</p>
+</footer>
+
+</div>
+</body>
+</html>
