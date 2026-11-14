@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Eric Stetler · College data projects</title>
-<meta name="description" content="Analyses of college data, built from public federal records with SQL and an AI coding agent. Each is live, open source, and checked against outside sources.">
+<meta name="description" content="College data projects built with SQL and an AI coding agent: a weekly admissions pacing report and two analyses of public federal records. Each is live, open source, and checked.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&display=swap">
@@ -28,19 +28,34 @@
 
 <header class="top">
   <p class="eyebrow">College data projects</p>
-  <h1>College data projects, built from public records and open to inspection</h1>
-  <p class="deck">Each project answers questions a college's leadership asks. Each shows the table behind every chart, states what the data cannot show, and can be rebuilt from the federal source files with one command.</p>
+  <h1>College data projects, built with SQL and open to inspection</h1>
+  <p class="deck">Each project answers questions a college's enrollment office or leadership asks. Each shows the table behind every chart, states what the data cannot show, and can be rebuilt from its sources with one command.</p>
   <div class="tiles">
-    <div class="tile"><span class="label">Live projects</span><span class="value">2</span><span class="delta">Each with its code, data dictionary, and methods page.</span></div>
-    <div class="tile"><span class="label">Accuracy checks</span><span class="value">50</span><span class="delta">Run on every build. All passed at the last build.</span></div>
-    <div class="tile"><span class="label">Sources</span><span class="value">Public</span><span class="delta">IPEDS, federal athletics filings, and colleges' own Common Data Sets.</span></div>
+    <div class="tile"><span class="label">Live projects</span><span class="value">3</span><span class="delta">Each with its code, data dictionary, and methods page.</span></div>
+    <div class="tile"><span class="label">Accuracy checks</span><span class="value">82</span><span class="delta">Run on every build. All passed at the last build.</span></div>
+    <div class="tile"><span class="label">Data</span><span class="value">Open</span><span class="delta">Public federal records for two projects. Synthetic records for the third, labelled on every page.</span></div>
   </div>
 </header>
 
 <section id="projects">
   <p class="kicker">Projects</p>
-  <h2>Start with either one</h2>
-  <p class="finding">Each opens in a browser with nothing to install. The first takes about three minutes to read. The second is a tool to use.</p>
+  <h2>Start with any of the three</h2>
+  <p class="finding">Each opens in a browser with nothing to install. The first is the weekly report an admissions office runs on. The second takes about three minutes to read. The third is a tool to use.</p>
+
+  <article class="card project">
+    <a class="shot" href="https://estetler-mbadba.github.io/admissions-pacing-report/"><img src="img/admissions-pacing-report.jpg" width="800" height="600" alt="Net deposits by weekly report for three entering classes, with the report date marked" loading="lazy"></a>
+    <div>
+      <p class="kicker">The weekly operating report</p>
+      <h3><a href="https://estetler-mbadba.github.io/admissions-pacing-report/">Weekly admissions pacing report</a></h3>
+      <p>The Monday-morning report an admissions office runs on. It shows where this year's class stands against the same date in earlier years at every stage from inquiry to deposit, breaks that down by round, territory, and student group, and projects where the class will land. Pick any report date and it shows only what was known that morning.</p>
+      <ul>
+        <li>Synthetic records for an invented college, shaped like exports from an admissions system, an aid system, and an athletics system, with the flaws real exports carry. Six cleaning rules recover the reported totals exactly.</li>
+        <li>Three ways to project the class, tested week by week against the class that enrolled. The plain SQL method held its own against a statistical model, and the page says so.</li>
+        <li>32 accuracy checks. One deletes everything after a report date, rebuilds the model, and requires that day's report to be unchanged.</li>
+      </ul>
+      <p class="links"><a class="btn" href="https://estetler-mbadba.github.io/admissions-pacing-report/">Open the report</a> <a href="https://estetler-mbadba.github.io/admissions-pacing-report/summary.html">One-page summary</a> <a href="https://estetler-mbadba.github.io/admissions-pacing-report/methods.html">Methods and checks</a> <a href="https://github.com/estetler-mbadba/admissions-pacing-report">Code</a></p>
+    </div>
+  </article>
 
   <article class="card project">
     <a class="shot" href="https://estetler-mbadba.github.io/ohio-five-enrollment-atlas/"><img src="img/ohio-five-enrollment-atlas.jpg" width="800" height="596" alt="Market overlap between each pair of the Five Colleges of Ohio" loading="lazy"></a>
@@ -78,7 +93,7 @@
   <h2>What the projects have in common</h2>
   <dl class="how">
     <dt>Built from the source files</dt>
-    <dd>One command downloads the federal files and rebuilds every number. No figure is typed or pasted in by hand, and the projects need nothing beyond standard Python.</dd>
+    <dd>One command rebuilds every number from its sources: federal downloads for two projects, a seeded generator for the third. No figure is typed or pasted in by hand, and the projects need nothing beyond standard Python.</dd>
     <dt>Measures defined once, in SQL</dt>
     <dd>Each project has a small dimensional model and a data dictionary that says what one row of every table means. A measure has one definition, and every chart reads from it.</dd>
     <dt>Checked before trusted</dt>
@@ -97,15 +112,22 @@
     <table>
       <thead><tr><th scope="col">Skill</th><th scope="col">Best example</th></tr></thead>
       <tbody>
+        <tr><td>A weekly operating report with a one-page summary for leadership</td><td><a href="https://estetler-mbadba.github.io/admissions-pacing-report/">Pacing report</a></td></tr>
+        <tr><td>Point-in-time SQL: what was known on a given date</td><td><a href="https://github.com/estetler-mbadba/admissions-pacing-report/blob/main/sql/04_projection.sql">Pacing report, <code>sql/04_projection.sql</code></a></td></tr>
+        <tr><td>Cleaning exports from three systems and reconciling to reported totals</td><td><a href="https://github.com/estetler-mbadba/admissions-pacing-report/blob/main/sql/01_staging.sql">Pacing report, <code>sql/01_staging.sql</code></a></td></tr>
+        <tr><td>Predictive reporting, back-tested against outcomes</td><td><a href="https://estetler-mbadba.github.io/admissions-pacing-report/methods.html#at=backtest">Pacing report, methods page</a></td></tr>
+        <tr><td>Checking a projection for bias across student groups</td><td><a href="https://estetler-mbadba.github.io/admissions-pacing-report/methods.html#at=bias">Pacing report, methods page</a></td></tr>
+        <tr><td>Gathering requirements before writing a query</td><td><a href="https://github.com/estetler-mbadba/admissions-pacing-report/blob/main/REPORT_REQUEST.md">Pacing report, <code>REPORT_REQUEST.md</code></a></td></tr>
+        <tr><td>Training staff to read a report and to use AI responsibly with student data</td><td><a href="https://github.com/estetler-mbadba/admissions-pacing-report/blob/main/STAFF_GUIDE.md">Pacing report, <code>STAFF_GUIDE.md</code></a></td></tr>
         <tr><td>SQL: joins, common table expressions, window functions, medians</td><td><a href="https://github.com/estetler-mbadba/athletics-benchmarking-explorer/blob/main/sql/03_marts.sql">Athletics explorer, <code>sql/03_marts.sql</code></a></td></tr>
         <tr><td>Data modeling and a data dictionary</td><td><a href="https://github.com/estetler-mbadba/ohio-five-enrollment-atlas/blob/main/DATA_DICTIONARY.md">Ohio Five atlas, <code>DATA_DICTIONARY.md</code></a></td></tr>
         <tr><td>Reconciling two sources that disagree</td><td><a href="https://estetler-mbadba.github.io/ohio-five-enrollment-atlas/methods.html#second-source">Ohio Five atlas, methods page</a></td></tr>
         <tr><td>Matching records that share no common ID</td><td><a href="https://github.com/estetler-mbadba/athletics-benchmarking-explorer/blob/main/pipeline/conference_seed.py">Athletics explorer, <code>pipeline/conference_seed.py</code></a></td></tr>
         <tr><td>Comparison groups and benchmarks</td><td><a href="https://estetler-mbadba.github.io/ohio-five-enrollment-atlas/methods.html">Ohio Five atlas, methods page</a></td></tr>
-        <tr><td>Automated accuracy checks</td><td><a href="https://github.com/estetler-mbadba/ohio-five-enrollment-atlas/blob/main/pipeline/checks.py">Ohio Five atlas, <code>pipeline/checks.py</code></a></td></tr>
+        <tr><td>Automated accuracy checks</td><td><a href="https://github.com/estetler-mbadba/admissions-pacing-report/blob/main/pipeline/checks.py">Pacing report, <code>pipeline/checks.py</code></a></td></tr>
         <tr><td>Dashboards a non-specialist can read</td><td><a href="https://estetler-mbadba.github.io/ohio-five-enrollment-atlas/">Ohio Five atlas, consortium overview</a></td></tr>
         <tr><td>An interactive tool with shareable views</td><td><a href="https://estetler-mbadba.github.io/athletics-benchmarking-explorer/">Athletics explorer</a></td></tr>
-        <tr><td>AI-assisted development with the work verified</td><td><a href="https://github.com/estetler-mbadba/athletics-benchmarking-explorer/blob/main/AI_WORKFLOW.md">Athletics explorer, <code>AI_WORKFLOW.md</code></a></td></tr>
+        <tr><td>AI-assisted development with the work verified</td><td><a href="https://github.com/estetler-mbadba/admissions-pacing-report/blob/main/AI_WORKFLOW.md">Pacing report, <code>AI_WORKFLOW.md</code></a></td></tr>
         <tr><td>Exports ready for Tableau, Power BI, or Excel</td><td><a href="https://github.com/estetler-mbadba/ohio-five-enrollment-atlas/tree/main/data/marts">Ohio Five atlas, <code>data/marts/</code></a></td></tr>
       </tbody>
     </table>
@@ -115,14 +137,14 @@
 <section id="about" class="about">
   <p class="kicker">About</p>
   <h2>Who built these</h2>
-  <p>I work in academic affairs leadership at a private university, where questions like these come from presidents, cabinets, and boards. I built these projects on public data so the whole method can be shown: the sources, the definitions, the checks, and the mistakes caught along the way.</p>
+  <p>I work in academic affairs leadership at a private university, where questions like these come from presidents, cabinets, and boards. I built these projects on public and synthetic data so the whole method can be shown: the sources, the definitions, the checks, and the mistakes caught along the way.</p>
   <p>The code is on <a href="https://github.com/estetler-mbadba">GitHub</a> under the MIT License.</p>
 </section>
 
 <hr>
 <footer>
-  <p>These are independent analyses of public records. They are not affiliated with or endorsed by any college, consortium, conference, or athletic association named in them.</p>
-  <p>Data: U.S. Department of Education, National Center for Education Statistics (IPEDS) and Office of Postsecondary Education (EADA); colleges' published Common Data Sets.</p>
+  <p>These are independent projects. The two built on public records are not affiliated with or endorsed by any college, consortium, conference, or athletic association named in them.</p>
+  <p>Data: U.S. Department of Education, National Center for Education Statistics (IPEDS) and Office of Postsecondary Education (EADA); colleges' published Common Data Sets. The pacing report uses synthetic records only, and its college is invented.</p>
 </footer>
 
 </div>
